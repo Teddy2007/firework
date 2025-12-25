@@ -13,7 +13,7 @@
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- title标签：页面标题（QQ打开时顶部会显示，浏览器标签页也会显示） -->
-    <title>手机烟花特效</title>
+    <title>祝美希生日快乐(*^▽^*)</title>
     <!-- style标签：存放CSS样式（控制页面元素的外观、位置） -->
     <style>
         /* 通配符选择器：选中页面所有元素，统一初始化样式 */
@@ -30,6 +30,19 @@
             overflow: hidden; /* 隐藏超出屏幕的内容（防止出现滚动条） */
             touch-action: none; /* 禁止手机触摸的默认行为（比如滑动、缩放，避免干扰点击烟花） */
         }
+        /* 新增：顶部文字的样式 */
+        .top-text {
+            position: fixed; /* 固定在顶部，不随页面移动 */
+            top: 20px; /* 距离顶部20px，避免贴边 */
+            left: 0;
+            width: 100%; /* 占满屏幕宽度 */
+            text-align: center; /* 文字居中 */
+            color: #fff; /* 文字白色，黑色背景更显眼 */
+            font-size: 18px; /* 手机端合适的字体大小 */
+            text-shadow: 0 0 5px #ff0, 0 0 10px #ff0; /* 加黄色光晕，更有节日感 */
+            pointer-events: none; /* 关键：文字不阻挡点击/触摸事件，不影响放烟花 */
+            z-index: 999; /* 确保文字在最上层，不被烟花遮挡 */
+        }
         /* 类选择器：选中所有class="particle"的元素（烟花粒子） */
         .particle {
             position: absolute; /* 绝对定位：可以自由设置元素的坐标（left/top） */
@@ -41,6 +54,8 @@
 </head>
 <body>
     <!-- body标签：页面的可见内容都放在这里，这里只有JS代码（控制交互和动画） -->
+         <!-- 新增：顶部文字标签，把“新年快乐，放烟花啦！”改成你想要的话 -->
+    <div class="top-text">生日快乐（点点屏幕也能放烟花~）</div>
     <script>
         // ===================== 配置参数区（你可以直接修改这里的值调整效果） =====================
         // 用const定义常量对象config，存放所有可配置的参数（方便修改，不用改核心逻辑）
